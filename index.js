@@ -39,7 +39,7 @@ var plugin = function () {
 
 		var hash = file.revHash = md5(file.contents).slice(0, 8);
 		var ext = path.extname(file.path);
-		var filename = path.basename(file.path, ext) + '-' + hash + ext;
+		var filename = hash + '-' + path.basename(file.path, ext) + ext;
 		file.path = path.join(path.dirname(file.path), filename);
 		cb(null, file);
 	});
